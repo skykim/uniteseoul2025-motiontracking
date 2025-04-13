@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: b8d7679189d4a5940af46004f3870920
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 625f186215c104763be7675aa2d941aa, type: 3}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 275259
+  packageName: Female Hair Collection - Big Hairstyle Set (16 pieces)
+  packageVersion: 1.0
+  assetPath: Assets/Deemos/Resources/TPP/Environment/Shaders/URP_HDRP_ShaderGraph/UrpTriplanar.shadergraph
+  uploadId: 639934

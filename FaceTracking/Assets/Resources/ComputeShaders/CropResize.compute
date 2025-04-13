@@ -1,0 +1,29 @@
+#pragma kernel CropResize
+
+Texture2D<float4> _InputTex;
+RWTexture2D<float4> _Result;
+
+float2 _InputSize;
+float2 _OutputSize;
+float2 _BoxCenter;
+float2 _BoxSize;
+
+SamplerState sampler_linear_clamp {
+    Filter = MIN_MAG_LINEAR_MIP_POINT;
+    AddressU = Clamp;
+    AddressV = Clamp;
+};
+
+[numthreads(8, 8, 1)]
+void CropResize(uint3 id : SV_DispatchThreadID)
+{
+    if (id.x >= _OutputSize.x || id.y >= _OutputSize.y)
+        return;
+
+    float2 uv = id.xy / _OutputSize;
+    float2 srcUV = (_BoxCenter - 0.5 * _BoxSize + uv * _BoxSize) / _InputSize;
+
+    float4 color = _InputTex.SampleLevel(sampler_linear_clamp, srcUV, 0);
+
+    _Result[id.xy] = color;
+}

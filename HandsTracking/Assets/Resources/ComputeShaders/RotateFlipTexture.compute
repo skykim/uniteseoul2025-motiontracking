@@ -1,0 +1,36 @@
+#pragma kernel CSMain
+
+RWTexture2D<float4> Result;
+Texture2D<float4> Input;
+
+uint2 InputDimensions;
+bool Rotate90;
+bool FlipHorizontal;
+bool FlipVertical;
+
+[numthreads(16, 16, 1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+    if (id.x >= InputDimensions.x || id.y >= InputDimensions.y) return;
+
+    uint2 coord = id.xy;
+    uint2 resultCoord = coord;
+
+    if (Rotate90)
+    {
+        resultCoord = uint2(InputDimensions.y - coord.y - 1, coord.x);
+    }
+
+    if (FlipHorizontal)
+    {
+        resultCoord.x = (Rotate90 ? InputDimensions.y : InputDimensions.x) - resultCoord.x - 1;
+    }
+
+    if (FlipVertical)
+    {
+        resultCoord.y = (Rotate90 ? InputDimensions.x : InputDimensions.y) - resultCoord.y - 1;
+    }
+
+    float4 pixel = Input[coord];
+    Result[resultCoord] = pixel;
+}

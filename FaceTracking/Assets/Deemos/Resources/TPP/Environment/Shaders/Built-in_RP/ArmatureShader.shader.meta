@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 6d99c6e0a8f8bf44bb8bcb6e5a056d01
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 275259
+  packageName: Female Hair Collection - Big Hairstyle Set (16 pieces)
+  packageVersion: 1.0
+  assetPath: Assets/Deemos/Resources/TPP/Environment/Shaders/Built-in_RP/ArmatureShader.shader
+  uploadId: 639934
